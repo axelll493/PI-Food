@@ -1,0 +1,17 @@
+.Select{
+    background-color: #23394d;
+    color: white;
+    text-decoration: none;
+    border-color: #23394d;
+    padding: 3px;
+    cursor: pointer;
+    font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.Select:hover {
+    color: #fff;
+    background-color: #e0792a;
+    
+}

@@ -1,0 +1,73 @@
+.Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://media1.giphy.com/media/7WDpgeYllwXWCTn0I8/source.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title{
+    position: absolute;
+      margin-bottom: 20%;
+    font-size: 350% ;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.445);
+    padding:10px;
+    border-radius: 15px;
+}
+.btn-material {
+    padding: 0 16px;
+    border-radius: 2px;
+    background-color: #007bff;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
+    transition: background-color 15ms linear,
+      box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+    height: 36px;
+    line-height: 2.25rem;
+    font-family: Roboto, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  
+  .btn-material:hover, .btn-material:focus {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #007bff;
+  }
+  
+  .btn-material:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    background-color: #007bff;
+  }
+
+.logo{
+    width: 700px;
+    height: 300px;
+    animation-duration: 3s;
+    animation-name: logo;
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes logo{
+    50%{
+        width: 700px;
+        height: 300px;
+    }
+    50%{
+        width: 600px;
+        height: 200px;
+    }
+}

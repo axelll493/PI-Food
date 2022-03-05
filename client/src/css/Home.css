@@ -1,0 +1,17 @@
+
+.conteiner {
+  
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 330px);
+    gap: 90px;
+    padding: 40px;
+    justify-content: center;
+
+    pointer-events: visible;
+  }
+ 
+  @media (max-width: 560px) {
+    .conteiner {
+      grid-template-columns: 100%;
+    }
+  }

@@ -1,0 +1,21 @@
+input{
+    padding: 6px;
+}
+
+.btn-search {
+	font-family: 'Rubik', sans-serif;
+	background-color: #23394d;
+	border-radius: 10px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 1.2em;
+	width: 6vw;
+	height: 6vh;
+	margin-left: 1rem;
+}
+
+.btn-search:hover {
+	color: #fff;
+    background-color: #e0792a;
+    
+}
