@@ -24,6 +24,7 @@ margin-left: 10px;
 `;
 
 
+
 export const Img2 = styled.img`
 width: 50px;
 height: 50px;
@@ -36,6 +37,8 @@ display: flex;
       margin-right: 0.5rem;
       margin-left: 100px;
 `;
+
+
 
 export const Image = styled.img`
 display:none;
@@ -88,6 +91,7 @@ export const LogoContainer = styled.div`
     margin-right: 0.5rem;
   }
 `;
+
 
 export const Menu = styled.ul`
   height: 100%;
@@ -234,6 +238,36 @@ export const MenuItemLinke = styled.a`
   }
 @media screen and (max-width: 1221px) {
   display:none
+`;
+export const MenuItemLinkess = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 10px;
+  color: #64b2ff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: 0.5s all ease;
+ 
+  
+}
+  &:hover {
+    color: #fff;
+    background-color: #e0792a;
+    transition: 0.5s all ease;
+  }
+  div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img { display:none;
+  }
 `;
 export const MenuItemLink = styled.a`
   display: flex;

@@ -1,20 +1,25 @@
 import './App.css';
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import landingPage from "./components/LandingPage/landingPage";
 import Home from './components/Home';
-import NewRecipe from './components/CreateNewRecipe/NewRecipe';
 
+import NavCreate from './components/CreateNewRecipe/NavCreate';
+import DetailRecipe from './components/Detail/DetailRecipe';
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
-    <Switch>
       <Route  exact path="/" component={landingPage} />
-      <Route  exact path="/home" component={Home}/>
-      <Route  exact path="/newrecipe" component={NewRecipe}/>
-      </Switch>
+      <Route   exact path="/home" component={Home}/>
+        <Route  exact path="/recipe/:id" component={DetailRecipe}/>
+      
+
+      
+      <Route   path="/newrecipe" component={NavCreate}/>
+      
+
     </div>
       
 

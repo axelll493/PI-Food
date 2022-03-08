@@ -7,11 +7,11 @@ import Recipe from '../images/recipeee.png'
 import Logo from '../images/logoo.png'
 import SearchBar from './SearchBar'
 import '../css/NavBar.css'
-
+import iCon from '../images/iCon.png'
 import { filterByType, getTypes, getOrdenamientoRecipes, getOrdenamientoScore } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-
+import Menuu from '../images/menu.png'
 
 function NavBar({ setActualPage }) {
   const [showMobileMenu, setshowMobileMenu] = useState(false)
@@ -90,6 +90,7 @@ function handleSortByScore(e) {
           <MenuItem>
             <MenuItemLink>
               <div>
+              <img src={iCon} alt="img not found" />
                 <select className='Select' onChange={e => handleSortByTitle(e)}>
                   <option value='' selected disabled hidden>Sort</option>
                   <option value='asc'  >A - Z</option>
@@ -101,6 +102,7 @@ function handleSortByScore(e) {
           <MenuItem>
             <MenuItemLink>
               <div>
+              <img src={iCon} alt="img not found" />
                 <select className='Select' onChange={e => handleFilterDiets(e)} >
                   <option key={0} value='all'>Diets</option>
                   {allDiets?.sort(function (a, b) {
@@ -119,6 +121,7 @@ function handleSortByScore(e) {
           <MenuItem>
             <MenuItemLink>
               <div>
+              <img src={iCon} alt="img not found" />
                 <select className='Select'>
                   <option value='' selected disabled hidden>All Recipes</option>
                   <option value='api'>Existent recipes</option>
@@ -130,6 +133,7 @@ function handleSortByScore(e) {
           <MenuItem>
             <MenuItemLink>
               <div>
+              <img src={iCon} alt="img not found" />
                 <select className='Select' onChange={e => handleSortByScore(e)}>
                   <option value='' selected disabled hidden >Punctuation</option>
                   <option value='dec'>High</option>
@@ -141,6 +145,7 @@ function handleSortByScore(e) {
           <MenuItem>
             <MenuItemLink>
               <div>
+              <img src={Menuu} alt="img not found" />
                 <SearchBar />
               </div>
             </MenuItemLink>

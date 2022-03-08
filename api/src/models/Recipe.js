@@ -11,17 +11,13 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false
     },
     summary: {
       type: DataTypes.TEXT,
       allowNull: false
-    },
-    diets: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull:true
     },
     spoonacularScore: {
       type: DataTypes.INTEGER,
@@ -31,12 +27,8 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    diets: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true
-    },
     steps: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.TEXT,
       allowNull: false
     },
     image: {

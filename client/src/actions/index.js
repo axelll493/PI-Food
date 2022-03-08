@@ -5,7 +5,19 @@ export const FILTER_BY_TYPE = "FILTER_BY_TYPE"
 export const GET_TYPES = "GET_TYPES"
 export const GET_ORDER = "GET_ORDER"
 export const GET_ORDER_SCORE = "GET_ORDER_SCORE"
+export const POST_RECIPE = "POST_RECIPE"
+export const GET_DETAIL = "GET_DETAIL"
 
+export function getDetail(id){
+  return async function(dispatch){
+    let json = await axios.get('http://localhost:3001/recipe/'+ id);
+     return dispatch({
+          type: GET_DETAIL,
+          payload: json.data
+     })
+ 
+}
+}
 
 export function getRecipes(){
     return async function (dispatch){
@@ -70,3 +82,15 @@ export function filterByType(payload) {
             })
     }
 }
+export function postRecipes(payload) {
+  return async function (dispatch) {
+      const json = await axios.post('http://localhost:3001/recipe', payload);
+      return dispatch({
+          type: POST_RECIPE,
+          payload: json.data
+
+      })
+  }
+}
+
+

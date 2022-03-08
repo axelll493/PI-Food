@@ -5,13 +5,17 @@ import {
     FILTER_BY_TYPE,
     GET_TYPES,
     GET_ORDER,
-    GET_ORDER_SCORE
+    GET_ORDER_SCORE,
+    POST_RECIPE,
+    GET_DETAIL
 } from "../actions"
+
 // //==== Setear Estado Global Inicial ======//
 const initialState = {
     recipes: [],
     diets: [],
-    allrecipes: []
+    allrecipes: [],
+    detail: []
 }
 // //==== Setear Reducers ======//
 function rootReducer(state = initialState, action) {
@@ -48,7 +52,16 @@ function rootReducer(state = initialState, action) {
         case GET_ORDER_SCORE:
             return{
                 ...state,
-                recipes:action.payload
+                recipes:action.payload,
+            }
+        case POST_RECIPE:
+            return {
+                ...state,
+            }
+        case GET_DETAIL:
+            return{
+                ...state,
+                detail: action.payload,
             }
         default:
             return state

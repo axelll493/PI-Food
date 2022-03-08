@@ -1,0 +1,39 @@
+.Fondo{
+
+       
+    background-image: url("https://media.istockphoto.com/photos/hot-empty-portable-barbecue-bbq-grill-with-flaming-fire-and-ember-on-picture-id1207251329?k=20&m=1207251329&s=170667a&w=0&h=1VuPdlplIMzM8edHEalkh94CBAg0ExtJtSyGPo_06IQ=");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    
+}
+
+.Titulo{
+    font-family: 'Vampiro One';
+    font-style: normal;
+    font-weight: 400;
+
+    text-align:center;
+    font-size:3em;
+    margin:20px 0 20px 0; 
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #228DFF,
+               0 0 35px #228DFF,
+               0 0 40px #228DFF,
+               0 0 50px #228DFF,
+               0 0 75px #228DFF;
+
+}
+
+@media (max-height: 101px) {
+    .Fondo {
+        height: 115vh;
+    }
+  }
+
+  @media (max-height: 628px) {
+    .Fondo {
+        height: 635vh;
+    }
+  }

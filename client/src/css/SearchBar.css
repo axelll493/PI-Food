@@ -19,3 +19,10 @@ input{
     background-color: #e0792a;
     
 }
+
+@media (max-width: 628px) {
+    .btn-search{
+		padding-left: 12px;
+		padding-right: 70px;
+	}
+  }

@@ -31,6 +31,9 @@ export default function Home() {
    
     return (
         <div className='CONTEINERR'>
+            
+            {actualRecipes.length > 0 ?
+            <div>
             <NavBar
             setActualPage={setActualPage}
             />
@@ -39,7 +42,7 @@ export default function Home() {
                         actualRecipes.map((el) => {
                             return (
                                 <div key={el.id}>
-                                    <Link to={'/home/' + el.id} style={{ textDecoration: 'none' }} >
+                                    <Link to={'/recipe/'+el.id} style={{ textDecoration: 'none' }} >
                                         <Card
                                             title={el.title}
                                             image={el.image}
@@ -59,7 +62,12 @@ export default function Home() {
                         recipesPerPage={recipesPerPage}
                         paginado={paginado}
                     />
+            </div> 
+            </div> :
+            <div className='loading'>
+
             </div>
+            }
         </div>
     )
 }

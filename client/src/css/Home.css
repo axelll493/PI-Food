@@ -15,3 +15,12 @@
       grid-template-columns: 100%;
     }
   }
+  .loading{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/fondoo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

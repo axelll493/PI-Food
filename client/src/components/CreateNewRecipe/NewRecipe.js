@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {
   Formulario,
   GrupoInput,
-  Input,
-  Label,
   ValidationHealth,
   Main,
   InputHealth,
@@ -21,11 +19,18 @@ import {
   ValidationSummaryy,
   TextAreaSteps,
 	LabelSteps,
-	ValidationSteps
+	ValidationSteps,
+  InputImage,
+  ValidationImage,
+  LabelImage,
+  Label,
+
 } from './NewRecipeStyle'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTypes } from '../../actions'
+import { getTypes, postRecipes } from '../../actions'
 import './NewRecipe.css'
+
+
 
 export default function NewRecipe() {
   const dispatch = useDispatch()
@@ -38,6 +43,7 @@ export default function NewRecipe() {
     Name: /[a-zA-Z]{1,50}$/,
     Summaryy:/[a-zA-Z ]{1,200}$/,
     Stepss:/[a-zA-Z ]{1,200}$/,
+    Imagenes: /(jpg|png|gif)$/i
   }
   const [input, setInput] = useState({
     title: "",
@@ -56,7 +62,7 @@ export default function NewRecipe() {
     });
     console.log(input)
   }
-
+  
   useEffect(() => {
     dispatch(getTypes());
   }, [dispatch]);
@@ -188,7 +194,7 @@ export default function NewRecipe() {
       return ChangeTitle({
         ...Title,
         validationTitle: "false",
-        TitleError: "No Puedes Agregar Numeros, ni signos en el nombre"
+        TitleError: "No Puedes Agregar Numeros, ni signos en el nombre, o espacios vacios"
       })
     }
     if (title.length>=4) {
@@ -285,11 +291,74 @@ export default function NewRecipe() {
     }
   }
 
+  ///////////////////////////////////////////
+
+  /////// VALIDATION IMAGE
+  const [Image, ChangeImage] = useState({
+    validationImage: null,
+    ImageError: "",
+   
+  })
+
+  var { validationImage, ImageError } = Image;
+  const validationInputImage = () => {
+ 
+    if(image.length > 1){
+      if (expresiones.Imagenes.test(image)) {
+       ChangeImage({
+
+        ...Image,
+        
+        validationImage: "true"
+        
+      })
+
+    } else {
+      return ChangeImage({
+   
+        ...Image,
+   
+        validationImage: "false",
+        ImageError: "Eso no es una imagen"
+        
+      })
+    }
+    }
+
+  }
+  
+
+  ////////////////////////////////////////
+
+  /// SUBMIT
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (validationSteps==="true" && validationTitle==="true"&& validationSummaryy==="true" && validationspoonacularScore==="true" && validationHealthScore==="true") {
+
+        dispatch(postRecipes(input));
+        setInput({
+          title: "",
+          summary: "",
+          spoonacularScore: "",
+          healthScore: "",
+          steps: [],
+          image: "",
+          diets: [],
+        });
+       
+    }else {
+        alert('Receta no fue creada')
+    }
+}
+
 
 
   return (
+
     <Main>
-      <Formulario>
+      
+      <Formulario onSubmit={e => handleSubmit(e)}>
+   
         <div>
           <LabelTitle validationTitle={validationTitle}>Title</LabelTitle>
           <GrupoInput>
@@ -304,17 +373,6 @@ export default function NewRecipe() {
             />
           </GrupoInput>
           <ValidationTitle validationTitle={validationTitle}><strong>{TitleError}</strong></ValidationTitle>
-        </div>
-        <div>
-          <Label>Image</Label>
-          <GrupoInput>
-            <Input
-              type='text'
-              value={image}
-              name='image'
-              onChange={handleChange}
-            />
-          </GrupoInput>
         </div>
         <div>
           <LabelSummaryy validationSummaryy={validationSummaryy}>Summary</LabelSummaryy>
@@ -372,11 +430,30 @@ export default function NewRecipe() {
               onChange={handleChange}
               validationSteps={validationSteps}
               onKeyUp={validationInputSteps}
-              onBlur={validationInputSteps}
+              
               
             />
           </GrupoInput>
           <ValidationSteps validationSteps={validationSteps}><strong>{StepsError}</strong></ValidationSteps>
+        </div>
+        <div>
+          <LabelImage validationImage={validationImage}>Image</LabelImage>
+          <GrupoInput>
+            <InputImage
+              type='url'
+              value={image}
+              name='image'
+              accept="image/*"
+              id= "image"
+              validationImage={validationImage}
+              onChange={handleChange}
+
+              onKeyUp={validationInputImage}
+              onBlur={validationInputImage}
+            />
+          </GrupoInput>
+            <ValidationImage validationImage={validationImage}><strong>{ImageError}</strong></ValidationImage>
+   
         </div>
         <ContenedorBotonCentrado className='diets'>
           <Label>Diets:</Label>
@@ -396,7 +473,7 @@ export default function NewRecipe() {
         </ContenedorBotonCentrado>
 
         <ContenedorBotonCentrado>
-          <Boton>Enviar</Boton>
+          <Boton type='submit'>Enviar</Boton>
         </ContenedorBotonCentrado>
 
       </Formulario>

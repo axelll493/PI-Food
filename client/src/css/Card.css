@@ -66,6 +66,8 @@ text-decoration: none;
     margin-top: 10px;
     border-radius: 10px;
     background-color: azure;
+    height: 231px;
+    width: 312px;
   }
   
   @media (max-width: 560px) {
