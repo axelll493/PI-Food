@@ -4,7 +4,7 @@ import '../css/Paginado.css'
 
 export default function Paginado({ recipes, recipesPerPage, paginado }) {
     const numbersPage = []
-    console.log(Math.ceil(recipes/recipesPerPage))
+    console.log(Math.ceil(recipes / recipesPerPage))
     for (let i = 1; i <= Math.ceil(recipes / recipesPerPage); i++) {
         numbersPage.push(i)
     }

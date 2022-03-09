@@ -62,12 +62,12 @@ export default function DetailRecipe(props){
                 {Array.isArray(recipeInfo[0].diets) ?
                   recipeInfo[0].diets.map((el,i)=>{
 
-                    return <DietTypes>
+                    return <DietTypes key={i}>
                       <Diet key={i}> {el.name}</Diet>
                         </DietTypes>
                   }): recipeInfo[0].diets.split(",").map((el,i)=>{
 
-                    return <DietTypes>
+                    return <DietTypes key={i}>
                       <Diet key={i}> {el}</Diet>
                         </DietTypes>
                   })

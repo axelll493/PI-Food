@@ -11,15 +11,11 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
+
       <Route  exact path="/" component={landingPage} />
       <Route   exact path="/home" component={Home}/>
         <Route  exact path="/recipe/:id" component={DetailRecipe}/>
-      
-
-      
       <Route   path="/newrecipe" component={NavCreate}/>
-      
-
     </div>
       
 

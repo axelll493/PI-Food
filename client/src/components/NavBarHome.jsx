@@ -19,7 +19,9 @@ export default function NavBarHome() {
             <MenuItemLinkess >
             
               <div >
+                
                 HOME
+                
               </div>
               
             </MenuItemLinkess>

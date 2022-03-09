@@ -86,10 +86,7 @@ export const LogoContainer = styled.div`
       color: #e07924;
     }
   }
-  svg {
-    fill: #e07924;
-    margin-right: 0.5rem;
-  }
+
 `;
 
 
@@ -207,7 +204,7 @@ export const MenuItem = styled.li`
     align-items: center;
   }
 `;
-export const MenuItemLinke = styled.a`
+export const MenuItemLinke = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -239,7 +236,7 @@ export const MenuItemLinke = styled.a`
 @media screen and (max-width: 1221px) {
   display:none
 `;
-export const MenuItemLinkess = styled.a`
+export const MenuItemLinkess = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
