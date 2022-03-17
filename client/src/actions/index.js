@@ -14,10 +14,20 @@ export function getDetail(id){
      return dispatch({
           type: GET_DETAIL,
           payload: json.data
-     })
+     }) 
  
 }
 }
+
+// export function getDetail(id){
+//   return function(dispatch){
+//     return axios.get('http://localhost:3001/recipe/'+ id)
+//     .then(response=>response.data)
+//     .then(json=>{
+//       dispatch({type: GET_DETAIL, payload: json})
+//     })
+//   }
+// }
 
 export function getRecipes(){
     return async function (dispatch){
@@ -31,6 +41,9 @@ export function getRecipes(){
     }
 }
 
+
+
+
 export function getnameRecipes(name){
     return async function(dispatch){
       let json = await axios.get("http://localhost:3001/recipes?name="+name);
@@ -41,6 +54,8 @@ export function getnameRecipes(name){
    
   }
 }
+
+
 
 export function getOrdenamientoRecipes(ordenamiento){
     return async function(dispatch){
@@ -64,11 +79,11 @@ export function getOrdenamientoScore(ordenamientoScore){
 }
 }
 export function filterByType(payload) {
-    return {
-      type: FILTER_BY_TYPE,
-      payload
-    };
-  }
+  return {
+    type: FILTER_BY_TYPE,
+    payload
+  };
+}
 
   export function getTypes() {
     return function (dispatch) {

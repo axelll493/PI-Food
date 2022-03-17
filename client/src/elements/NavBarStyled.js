@@ -17,8 +17,8 @@ width: 50px;
 height: 50px;
 margin: 10px;
 margin-left: 10px;
-@media screen and (max-width: 1221px) {
-    margin-left: 100px;
+@media screen and (max-width: 640px) {
+    margin-left: 20px;
     }
   }
 `;
@@ -33,9 +33,12 @@ background-color: #23394d;
 curso: pointer;
 align-items: center;
 display: flex;
-
-      margin-right: 0.5rem;
-      margin-left: 100px;
+  margin-right: 0.5rem;
+  margin-left: 100px;
+  @media screen and (max-width: 640px) {
+    margin-left: 60px;
+    }
+  }
 `;
 
 
@@ -123,7 +126,7 @@ export const MenuItems = styled.li`
 `;
 
 
-export const MenuItemLinks = styled.a`
+export const MenuItemLinks = styled.div`
   
   display:none;
   img { display:none;
@@ -266,7 +269,7 @@ export const MenuItemLinkess = styled.div`
   img { display:none;
   }
 `;
-export const MenuItemLink = styled.a`
+export const MenuItemLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

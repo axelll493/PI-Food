@@ -165,7 +165,7 @@ const ValidationHealth = styled.p`
 //PUNTUCION DE RECETA VALIDACION
 
 const InputSpoonacularScore = styled.input`
-color:white;
+color:black;
 	width: 50%;
 	background: #fff;
 	border-radius: 3px;

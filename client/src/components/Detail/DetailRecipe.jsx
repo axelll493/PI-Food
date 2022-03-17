@@ -72,6 +72,13 @@ export default function DetailRecipe(props){
                         </DietTypes>
                   })
                 }
+                <p style={{textAlign:'left', margin:0}}> Best served as: </p>
+                <DietTypes>
+                            {recipeInfo[0].dishTypes.map((e, i)=>
+                            <Diet key={i}>
+                                {e}
+                            </Diet>)}
+                        </DietTypes>
                 <Scores>
                   {recipeInfo[0].spoonacularScore? <div>
                     <img src={Logo} alt ="not found" />
@@ -93,6 +100,8 @@ export default function DetailRecipe(props){
                       <Label>SUMARY</Label>
                       <Step><p>{recipeInfo[0].summary.replace( /(<([^>]+)>)/ig, '')}</p></Step>
                     </ContenedorBotonCentrado>
+
+
                     <ContenedorBotonCentrado>
                       <Label>STEPS</Label>
                       

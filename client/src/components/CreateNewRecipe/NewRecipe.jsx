@@ -122,14 +122,14 @@ export default function NewRecipe() {
       return ChangeHealthScore({
         ...HealthScore,
         validationHealthScore: "false",
-        HealthScoreError: "No puedes agregar letras ni signos, o espacios"
+        HealthScoreError: "You can not add letters or signs, or spaces"
       })
     }
     if (healthScore > 100 || healthScore === "0") {
       ChangeHealthScore({
         ...HealthScore,
         validationHealthScore: "false",
-        HealthScoreError: "El numero no puede ser mayor a 100"
+        HealthScoreError: "The number cannot be greater than 100"
       })
     } else {
       ChangeHealthScore({
@@ -158,14 +158,14 @@ export default function NewRecipe() {
       return ChangespoonacularScore({
         ...SpoonacularScore,
         validationspoonacularScore: "false",
-        spoonacularScoreError: "No puedes agregar letras ni signos, o espacios"
+        spoonacularScoreError: "You can not add letters or signs, or spaces"
       })
     }
     if (spoonacularScore > 100 || spoonacularScore === "0") {
       ChangespoonacularScore({
         ...SpoonacularScore,
         validationspoonacularScore: "false",
-        spoonacularScoreError: "El numero no puede ser mayor a 100 o 0"
+        spoonacularScoreError: "The number cannot be greater than 100 or 0"
 
       })
     } else {
@@ -194,7 +194,7 @@ export default function NewRecipe() {
       return ChangeTitle({
         ...Title,
         validationTitle: "false",
-        TitleError: "No Puedes Agregar Numeros, ni signos en el nombre, o espacios vacios"
+        TitleError: "You can not add numbers, or signs in the name, or empty spaces"
       })
     }
     if (title.length>=4) {
@@ -206,7 +206,7 @@ export default function NewRecipe() {
        return ChangeTitle({
         ...Title,
         validationTitle: "false",
-        TitleError: "tiene que contener mas de 4 letras"
+        TitleError: "must contain more than 4 letters"
       })
     }
   }
@@ -232,7 +232,7 @@ export default function NewRecipe() {
       return ChangeSummaryy({
         ...Summaryy,
         validationSummaryy: "false",
-        SummaryyError: "No Puedes Agregar Numeros, ni signos en el nombre"
+        SummaryyError: "You can not add signs in the name"
       })
     }
     if (summary.length>=10) {
@@ -246,7 +246,7 @@ export default function NewRecipe() {
        return ChangeSummaryy({
         ...Summaryy,
         validationSummaryy: "false",
-        SummaryyError: "tiene que contener mas de 10 letras"
+        SummaryyError: "must contain more than 10 letters"
       })
     }
   }
@@ -271,7 +271,7 @@ export default function NewRecipe() {
       return ChangeSteps({
         ...Steps,
         validationSteps: "false",
-        StepsError: "No Puedes Agregar Numeros, ni signos en el nombre"
+        StepsError: "You can not add signs in the name"
       })
     }
     if (steps.length>=10) {
@@ -285,7 +285,7 @@ export default function NewRecipe() {
        return ChangeSteps({
          ...Steps,
         validationSteps: "false",
-        StepsError: "tiene que contener mas de 10 letras"
+        StepsError: "Must contain more than 10 letters"
         
       })
     }
@@ -319,7 +319,7 @@ export default function NewRecipe() {
         ...Image,
    
         validationImage: "false",
-        ImageError: "Eso no es una imagen"
+        ImageError: "This is not an image, please add an image url"
         
       })
     }

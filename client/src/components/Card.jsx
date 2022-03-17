@@ -19,4 +19,3 @@ export default function Card ({ image, title, diets })  {
         </li>
     );
 }
-

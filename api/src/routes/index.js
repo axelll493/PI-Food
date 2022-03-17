@@ -24,15 +24,18 @@ const getApiInfo = async () => {
             spoonacularScore: el.spoonacularScore,
             healthScore: el.healthScore,
             diets: el.diets.join(", "),
+            dishTypes: el.dishTypes,
             steps: el.analyzedInstructions[0]?.steps.map(pos=>{
                 return pos.step
-            })  
+            })
         }
     })
 
     return apiInfo;
     
 };
+
+
 
 const GetDbInfo = async () => {
     return await Recipe.findAll({
@@ -52,10 +55,18 @@ const getAllRecipes = async () => {
     const infoTotal =apiInfo.concat(dbInfo);
     return infoTotal
 }
+
+
 router.get("/recipes", async (req, res) => {
     const { name } = req.query;
-
         const recipesTotal = await getAllRecipes()
+        // const dbRecipeLength = await Recipe.count();
+        // let dbRecipeInfo;
+        // if (dbRecipeLength === 0) {
+        //     dbRecipeInfo = await Recipe.bulkCreate(recipesTotal);
+        // }
+        // dbRecipeInfo = await GetDbInfo()
+    try{
         if (name) {
             let recipeTitle = await recipesTotal.filter((r) =>
                 r.title.toLowerCase().includes(
@@ -67,29 +78,28 @@ router.get("/recipes", async (req, res) => {
         } else {
             res.status(200).json(recipesTotal);
         }
+    }catch(error){
+        console.log(error)
+    }
+    
  
 });
 
 
-const DBDietTypes = [
-    'Gluten Free',
-    'Ketogenic', 
-    'Vegetarian',
-    'Lacto-Vegetarian', 
-    'Ovo-Vegetarian',
-    'Vegan',
-    'Pescatarian', 
-    'Paleo', 
-    'Primal', 
-    'Low FODMAP',
-    'Whole30'
-]
+
 
 router.get("/types", async (req, res) => {
 
-    DBDietTypes.forEach((diet) => {
+    const recipesApi = await axios.get(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+    );
+    const types = await recipesApi.data.results.map((t) => t.diets);
+    console.log(types)
+    const diets = types.flat();
+    const typeDiets = [...new Set(diets), "vegetarian"];
+    typeDiets.forEach((d) => {
         Diet.findOrCreate({
-            where: { name: diet },
+            where: { name: d },
         });
     });
     const allDiets = await Diet.findAll();
@@ -218,5 +228,6 @@ router.get("/recipe/:id", async (req, res) => {
     }
     
 });
+
 
 module.exports = router
