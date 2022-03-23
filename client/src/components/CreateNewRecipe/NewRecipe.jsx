@@ -48,9 +48,9 @@ export default function NewRecipe() {
   const [input, setInput] = useState({
     title: "",
     summary: "",
-    spoonacularScore: "",
-    healthScore: "",
-    steps: [],
+    spoonacularScore: 0,
+    healthScore: 0,
+    steps: "",
     image: "",
     diets: [],
   });
@@ -333,7 +333,7 @@ export default function NewRecipe() {
   /// SUBMIT
   function handleSubmit(e) {
     e.preventDefault();
-    if (validationSteps==="true" && validationTitle==="true"&& validationSummaryy==="true" && validationspoonacularScore==="true" && validationHealthScore==="true") {
+  
 
         dispatch(postRecipes(input));
         setInput({
@@ -341,14 +341,12 @@ export default function NewRecipe() {
           summary: "",
           spoonacularScore: "",
           healthScore: "",
-          steps: [],
+          steps: "",
           image: "",
           diets: [],
         });
        
-    }else {
-        alert('Receta no fue creada')
-    }
+   
 }
 
 
@@ -394,7 +392,7 @@ export default function NewRecipe() {
           <LabelSpoonacularScore validationspoonacularScore={validationspoonacularScore}>Ranking</LabelSpoonacularScore>
           <GrupoInput>
             <InputSpoonacularScore
-              type="text"
+              type="number"
               value={spoonacularScore}
               name='spoonacularScore'
               onChange={handleChange}
@@ -409,7 +407,7 @@ export default function NewRecipe() {
           <LabelHealth validationHealthScore={validationHealthScore}>Health score</LabelHealth>
           <GrupoInput>
             <InputHealth
-              type="text"
+              type="number"
               value={healthScore}
               name='healthScore'
               onChange={handleChange}

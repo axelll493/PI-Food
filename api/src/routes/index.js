@@ -13,7 +13,7 @@ const router = Router();
 
 const getApiInfo = async () => {
     const apiUrl = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=5`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=1`
     );
     const apiInfo = await apiUrl.data.results.map(el => {
         return {
@@ -178,7 +178,7 @@ router.get('/ordenamientoScore/:ordenamientoScore', async (req, res) => {
     }
 })
 router.post("/recipe", async (req, res) => {
-    try{
+
         let {
         title,
         summary,
@@ -201,9 +201,7 @@ router.post("/recipe", async (req, res) => {
     recipeCreated.addDiet(dietDb);
     res.send("Recipe created successfully");
     console.log(recipeCreated)
-    }catch(error){
-        console.log(error)
-    }
+   
     
 });
 
